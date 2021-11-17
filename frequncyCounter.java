@@ -2,18 +2,18 @@ import java.util.Scanner;
 import javax.swing.*;
 import java.io.*;
 import java.text.NumberFormat;
-
+import java.util.Random;
 /** ***************************************************
  *  Name:           Samarjeet Randhawa 
  *  Class:          CS30S
  * 
- *  Assignment:     Ax Qy
+ *  Assignment:     A1.5
  * 
- *  Description:    Place a short description of your program here
+ *  Description:    write 1000 random digits between 1-50 to a file 
  * 
  *************************************************************/
 
-public class FormatTemplateV3 {
+public class frequncyCounter {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
@@ -31,6 +31,8 @@ public class FormatTemplateV3 {
         
         // a new line character that works on every computer system
         String nl = System.lineSeparator();
+         
+        int randomInt = 0; 
     
     // ***** objects *****
     
@@ -40,18 +42,19 @@ public class FormatTemplateV3 {
         // file io buffers for reading and writing to text files
         
         //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
-        //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
+        PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
+        Random rnd = new Random(); 
     
     // ***** print banners *****
     
         banner = "*****************************" + nl;
         banner += "Name:        Samarjeet Randhawa" + nl;
         banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  Ax Qy" + nl;
+        banner += "Assignment:  A1.5" + nl;
         banner += "*****************************" + nl + nl;
         
         System.out.println(banner);
-        //fout.print(banner);
+        fout.print(banner);
     
     // ***** Get Input *****
     
@@ -61,18 +64,30 @@ public class FormatTemplateV3 {
     
     // ***** Main Processing *****
     
+    
+for(int i = 0; i <1000; i++){
+    
+    randomInt = (rnd.nextInt(50) +1); 
+    
+    System.out.println(randomInt);  // prints numbers to terminal window 
+    
+    fout.println(randomInt); // prints to a file     
+}// end of for loop 
+    
     // ***** Print Formatted Output *****
+    
+    //for(int i = 0; i < 1000; i ++)
     
     // ***** Closing Message *****
     
         System.out.println();
         System.out.println("end of processing");
-        //fout.println("End of Processing");
-        
+        fout.println("End of Processing");
+               
     // **** close io buffers *****
     
         //fin.close();
-        //fout.close();
+        fout.close();
     } // end main 
     
 } // end FormatTemplate
